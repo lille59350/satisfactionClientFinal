@@ -27,7 +27,7 @@ pd.options.display.max_colwidth=800
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 
-cdiscount = pd.read_csv('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/cdiscount.csv')
+cdiscount = pd.read_csv('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/cdiscount.csv')
 cdiscount = cdiscount.drop(columns=['titre', 'Unnamed: 0', 'pays'], axis=1)
 X = cdiscount['commentaire']
     
@@ -64,10 +64,10 @@ if page==1:
                 """)
     
     st.write("les 100 mots négatifs les plus représentés sont présents dans l'images ci-dessous")
-    st.image("C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/images/cloud_negatif.png")
+    st.image("C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/images/cloud_negatif.png")
 
     st.write("les 100 mots positifs les plus représentés sont présents dans l'images ci-dessous")
-    st.image("C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/images/cloud_positifs.png")
+    st.image("C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/images/cloud_positifs.png")
     
 # contenu de la 2ème page
 elif page==2:
@@ -136,32 +136,32 @@ elif page==2:
         #test = vectorizer.fit_transform(comment_to_predict).todense()
     
         if selection_model_ML == "RandomForest":
-            model = load('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_rf.joblib')
+            model = load('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_rf.joblib')
             check_predict = model.predict(comment_to_predict)
             st.write(check_predict)
     
         if selection_model_ML == "RandomForestTFIDF":
-            model = load('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_rf_tfidf.joblib')
+            model = load('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_rf_tfidf.joblib')
             check_predict = model.predict(comment_to_predict)
             st.write(check_predict)
     
         if selection_model_ML == "DecisionTreeClassifier":
-            model = load('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_dtc.joblib')
+            model = load('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_dtc.joblib')
             check_predict = model.predict(comment_to_predict)
             st.write(check_predict)
     
         if selection_model_ML == "GradientBoostingClassifier":
-            model = load('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_gbc.joblib')
+            model = load('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_gbc3.joblib')
             check_predict = model.predict(comment_to_predict)
             st.write(check_predict)
     
         if selection_model_ML == "RandomForest_ngram_1":
-            model = load('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_rf_tfidf_ngrams.joblib')
+            model = load('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_rf_tfidf_ngrams.joblib')
             check_predict = model.predict(comment_to_predict)
             st.write(check_predict)    
             
         if selection_model_ML == "RandomForest_ngram_2":
-            model = load('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_rf_tfidf_ngrams_1_2.joblib')
+            model = load('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_rf_tfidf_ngrams_1_2.joblib')
             check_predict = model.predict(comment_to_predict)
             st.write(check_predict)  
 
@@ -176,31 +176,31 @@ elif page==2:
                             ])
         
         if selection_model_DL == "Embedding1":
-            model = tf.keras.models.load_model('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_embedding1')
+            model = tf.keras.models.load_model('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_embedding1')
             check_predict = model.predict(check_pad, verbose=1)
             check_predict_class = check_predict.argmax(axis=1)
             st.write(check_predict_class)
             
         if selection_model_DL == "Embedding2":
-            model = tf.keras.models.load_model('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_embedding2')
+            model = tf.keras.models.load_model('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_embedding2')
             check_predict = model.predict(check_pad, verbose=1)
             check_predict_class = check_predict.argmax(axis=1)
             st.write(check_predict_class)
               
         if selection_model_DL == "Embedding3":
-            model = tf.keras.models.load_model('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_embedding3')
+            model = tf.keras.models.load_model('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_embedding3')
             check_predict = model.predict(check_pad, verbose=1)
             check_predict_class = check_predict.argmax(axis=1)
             st.write(check_predict_class)
     
         if selection_model_DL == "Embedding4":
-            model = tf.keras.models.load_model('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_embedding4')
+            model = tf.keras.models.load_model('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_embedding4')
             check_predict = model.predict(check_pad, verbose=1)
             check_predict_class = check_predict.argmax(axis=1)
             st.write(check_predict_class)
     
         if selection_model_DL == "Embedding5":
-            model = tf.keras.models.load_model('C:/Users/t.fourtouill/Documents/_Data_Scientist/satisfactionClientFinal/models/model_embedding5')
+            model = tf.keras.models.load_model('C:\Users\t.fourtouill\Bureau\streamlit_satisfaction_clients/models/model_embedding5')
             check_predict = model.predict(check_pad, verbose=1)
             check_predict_class = check_predict.argmax(axis=1)
             st.write(check_predict_class)

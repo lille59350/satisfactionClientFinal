@@ -18,17 +18,19 @@ import keras
 
 from sklearn.feature_extraction.text import CountVectorizer
 from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
+#from keras.preprocessing.sequence import pad_sequences
 
-from tensorflow.keras.models import load_model
+from keras.utils import pad_sequences
+
+# from tensorflow.keras.models import load_model
 from joblib import dump, load
 
 pd.options.display.max_colwidth=800
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 
-cdiscount = pd.read_csv('./models/cdiscount.csv')
-cdiscount = cdiscount.drop(columns=['titre', 'Unnamed: 0', 'pays'], axis=1)
+cdiscount = pd.read_csv('./cdiscount.csv')
+# cdiscount = cdiscount.drop(columns=['titre', 'Unnamed: 0', 'pays'], axis=1)
 X = cdiscount['commentaire']
     
 # instanciation des pages ici 3
@@ -48,7 +50,7 @@ if page==1:
     
     fig, ax = plt.subplots(figsize=(16, 6))
     sns.countplot(cdiscount)
-    st.matplot(fig)
+    st.pyplot(fig)
    
     # mise en cache du DataFrame cdiscount qui a servi à construire les modèles pour téléchargement dans stramlit
     @st.cache
@@ -67,7 +69,7 @@ if page==1:
     st.image("./images/cloud_negatif.png")
 
     st.write("les 100 mots positifs les plus représentés sont présents dans l'images ci-dessous")
-    st.image("./images/cloud_positifs.png")
+    st.image("./images/cloud_negatif.png")
     
 # contenu de la 2ème page
 elif page==2:
